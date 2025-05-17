@@ -40,3 +40,9 @@ class Review:
         self.rating = rating
         self.reviewtext = reviewtext
         self.reviewdate = reviewdate
+
+class User:
+    def __init__(self, userid=0, user_name=None, user_location = None):
+        self.userid = userid
+        self.user_name = user_name
+        self.user_location = user_location

@@ -1,8 +1,11 @@
 # gui.py
+
 import tkinter as tk
 from tkinter import ttk, messagebox
 import db_functions
 from objects import Author, Book, Genre
+
+
 
 class GoodreadsApp:
     def __init__(self, master):
@@ -69,6 +72,7 @@ class GoodreadsApp:
         ttk.Button(self.books_tab, text="Eliminar Libro", command=self.delete_book).grid(row=9, column=1, padx=5, pady=10, sticky='ew')
 
     def add_book(self):
+        bookid = self.book_id_entry.get()
         title = self.book_title_entry.get()
         isbn = self.book_isbn_entry.get()
         isbn13 = self.book_isbn13_entry.get()
@@ -80,7 +84,7 @@ class GoodreadsApp:
             try:
                 year = int(publication_year)
                 pages = int(num_pages)
-                book = Book(title=title, isbn=isbn, isbn13=isbn13, language=language,
+                book = Book(bookid=bookid, title=title, isbn=isbn, isbn13=isbn13, language=language,
                             publication_year=year, publisher=publisher, num_pages=pages)
                 db_functions.add_book(book=book)
                 messagebox.showinfo("Éxito", f"Libro '{title}' agregado.")
@@ -89,6 +93,7 @@ class GoodreadsApp:
                 messagebox.showerror("Error", "Año de publicación y número de páginas deben ser números enteros.")
         else:
             messagebox.showerror("Error", "Título, año de publicación, editorial y número de páginas son obligatorios.")
+
 
     def get_book(self):
         book_id_str = self.book_id_entry.get()
@@ -322,5 +327,7 @@ class GoodreadsApp:
         self.genre_name_entry.delete(0, tk.END)
 if __name__ == '__main__':
     root = tk.Tk()
+    # abrir conexion
+    db_functions.connect()
     app = GoodreadsApp(root)
     root.mainloop()
