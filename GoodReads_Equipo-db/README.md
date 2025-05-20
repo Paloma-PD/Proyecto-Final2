@@ -4,7 +4,7 @@ A SQLite database project for Goodreads book data analysis.
 
 ## Project Overview
 
-This project creates and populates a SQLite database with Goodreads book data. It includes functionality for storing and querying information about books, authors, genres, users, ratings, and reviews.
+This project creates and populates a SQLite database with Goodreads book data. It includes functionality for storing and querying information about books, authors, genres,  users, ratings, and reviews.
 
 
 This project is a desktop application developed in Python using the Tkinter library to manage a Goodreads book database. The application allows performing CRUD (Create, Read, Update, Delete) operations on the Books and Authors tables of the SQLite database.
@@ -13,8 +13,7 @@ This project is a desktop application developed in Python using the Tkinter libr
 ## Project Structure
 
 - `/data`: Contains the source data files
-  - `goodreads_test.csv`: Test dataset
-  - `goodreads_book_works.json`: Book works data in JSON format
+  - `goodreads_train.csv`: Test dataset
   - `Goodreads_books_with_genres.csv`: Books with genre information
 
 - `/db`: Directory for the SQLite database file
@@ -40,7 +39,7 @@ The database consists of the following tables:
 - `BookAuthors`: Many-to-many relationship between books and authors
 - `Genres`: Genre categories
 - `BookGenres`: Many-to-many relationship between books and genres
-- `Users`: User information
+- `Users`: User information 
 - `Ratings`: User ratings for books
 - `Reviews`: User reviews for books
 
